@@ -208,6 +208,9 @@ abstract class MapCrdtBase extends Crdt {
 
     // Write new records
     await putRecords(newRecords);
+    if (newRecords.keys.isEmpty) {
+      return;
+    }
     onDatasetChanged(changeset.keys, hlc);
   }
 }
